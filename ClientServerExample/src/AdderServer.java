@@ -1,6 +1,4 @@
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -42,11 +40,12 @@ public class AdderServer extends Thread {
 
             // read ints
             Stack<Integer> integerStack = new Stack<>();
-            HashMap<Integer, InputStream> inputs = new HashMap<>();
+            HashMap<Integer, BufferedReader> inputs = new HashMap<>();
             for (int i = 0; i < this.numClients; i++) {
-                inputs.put(i, this.clients.get(i).getInputStream());
+                inputs.put(i, new BufferedReader(new InputStreamReader(this.clients.get(i).getInputStream())));
                 System.out.println(this + " received input stream " + inputs.get(i));
-                integerStack.push(inputs.get(i).read());
+                String in = inputs.get(i).readLine();
+                integerStack.push(Integer.parseInt(in));
                 System.out.println(this + " received " + integerStack.get(i));
             }
 
@@ -54,17 +53,18 @@ public class AdderServer extends Thread {
             int sum = integerStack.stream().reduce(0, Integer::sum);
 
             // send sum to all clients
-            HashMap<Integer, OutputStream> outputs = new HashMap<>();
+            HashMap<Integer, BufferedWriter> outputs = new HashMap<>();
             for (int i = 0; i < this.numClients; i++) {
-                outputs.put(i, this.clients.get(i).getOutputStream());
+                outputs.put(i, new BufferedWriter(new OutputStreamWriter(this.clients.get(i).getOutputStream())));
                 System.out.println(this + " sent " + sum + " to " + this.clients.get(i));
-                outputs.get(i).write(sum);
+                outputs.get(i).write(String.valueOf(sum));
+                outputs.get(i).newLine();
+                outputs.get(i).flush();
             }
 
             // close connections
             for (int i = 0; i < this.numClients; i++) {
                 inputs.get(i).close();
-                outputs.get(i).close();
                 this.clients.get(i).close();
             }
 
