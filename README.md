@@ -1,6 +1,6 @@
 # Java Examples
 
-Dieses Repository enthält Beispiele zur Java Problemen mit passenden Erklärungen.
+Dieses Repository enthält Beispiele zu Java Problemen mit passenden Erklärungen.
 
 ### Inhalt
 
