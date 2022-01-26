@@ -1,6 +1,4 @@
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -30,18 +28,20 @@ public class AdderClient extends Thread {
         try (
                 // connect to server
                 Socket socket = new Socket(this.hostName, this.portNumber);
-                OutputStream output = socket.getOutputStream();
-                InputStream inputStream = socket.getInputStream();
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 ) {
             // confirm connection
             System.out.println(this + " connected to " + socket);
 
             // send number
-            output.write(num);
+            bw.write(String.valueOf(num));
+            bw.newLine();
+            bw.flush();
             System.out.println(this + " sent " + num);
 
             // wait for input
-            int sum = inputStream.read();
+            String sum = br.readLine();
             System.out.println(this + " got " + sum + " as result.");
 
         } catch (IOException e) {
