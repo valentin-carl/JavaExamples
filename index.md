@@ -6,6 +6,7 @@ Dieses Repository enthält verschiedene Beispiele zu Java Konzepten und passende
 
 - [Client-Server-Kommunikation](https://valentin-carl.github.io/JavaExamples/ClientServer)
 - [Thread Synchronisation](https://valentin-carl.github.io/JavaExamples/Synchronized)
+- [Design Patterns](https://valentin-carl.github.io/JavaExamples/Patterns)
 
 ### Bei Fragen
 
