@@ -139,7 +139,7 @@ try (
   InputStream input = socket.getInputStream();
 ) {
   Stack<Integer> stack = new Stack<>();
-  stack.pop(input.read());
+  stack.push(input.read());
 } catch (IOException e) {
   e.printStackTrace();
 ...
