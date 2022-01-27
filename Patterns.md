@@ -24,7 +24,126 @@ Es folgt eine kurze Beschreibung von einem Auszug der Design Patterns, die Liste
 
 ### Factory Pattern
 
+Das Factory Pattern beschreibt eine allgemeine Möglichkeit, Objekte in einem Programm zu erstellen. Die Idee ist es, ein Interface oder eine abstrakte Klasse für die Objekte zu definieren, die erstellt werden sollen. Subklassen davon bestimmen dann, wie diese Objekte tatsächlich implementiert werden. Dazu gibt es ein Factory Objekt (oder eine Factory Klasse), das die Instanziierung der Objekte übernimmt. Der Vorteil dieser Strukturierung ist, dass die Erstellungslogik der Objekte unabhängig davon ist, wo die Objekte gebraucht werden und nur einmal festgelegt werden muss – gleichzeitig können Objekte, dort wo sie gebraucht werden, vorher über das Interface oder die abstrakte Klasse referenziert werden. Das folgende Klassendiagramm zeigt den Aufbau des Factory Patterns anhand eines Beispiels.
+
+```
+┌─────────────────────────────────────────┐
+│                                         │
+│            ┌─────────────┐              │           ┌─────────────┐
+│            │<<interface>>│              │           │             │
+│            │    Ball     │              │           │  SomeClass  │
+│            ├─────────────┤              │           ├─────────────┤
+│            │+size: int   │              │           │             │
+│            │+price: float│              │           │             │
+│            ├─────────────┤              │           ├─────────────┤
+│            │+roll(): void│              │           │+main(): void│
+│            │             │              │           │             │
+│            └─────────────┘              │           └──────┬──────┘
+│                   ▲                     │                  │
+│                   │ implements          │                  │ calls
+│        ┌──────────┴───────────┐         │                  ▼
+│        │                      │         │         ┌─────────────────┐
+│  ┌─────┴──────┐       ┌───────┴──────┐  │         │                 │
+│  │            │       │              │  │         │   BallFactory   │
+│  │  Football  │       │  Volleyball  │  │         ├─────────────────┤
+│  ├────────────┤       ├──────────────┤  │ creates │                 │
+│  │            │       │              │  │◄────────┤                 │
+│  │            │       │              │  │         ├─────────────────┤
+│  ├────────────┤       ├──────────────┤  │         │+getBall(): Ball │
+│  │            │       │              │  │         │                 │
+│  │            │       │              │  │         └─────────────────┘
+│  └────────────┘       └──────────────┘  │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+Hinweis: Es bietet sich an, entweder die Klasse `BallFactory` und nur Klassenmehtoden und einem privaten Constructor auszustatten oder das Singleton Pattern auf die Klassen anzuwenden, um zu verhindern, dass mehr Objekte der Factory Klassen als notwendig erstellt werden.
+
+**Mögliche Java Implementation**
+
+```java
+public interface Ball {
+
+  int size;
+  float price;
+  
+  public void roll ();
+}
+```
+```java
+public class Volleyball {
+
+  int size;
+  float price;
+  // more attributes here
+  
+  protected Volleyball (int size, float price) {
+    this.size = size;
+    this.price = price;
+  }
+  
+  public void roll () {
+    System.out.println(this + " volleyball is rolling..");
+  }
+}
+```
+```java
+public class Football {
+
+  int size;
+  float price;
+  // more attributes here
+  
+  protected Football (int size, float price) {
+    this.size = size;
+    this.price = price;
+  }
+  
+  public void roll () {
+    System.out.println(this + " football is rolling..");
+  }
+}
+```
+```java
+public class BallFactory {
+
+  // private constructor to prevent object creation
+  private BallFactory () {}
+  
+  // factory method
+  public static Ball getBall (String type) throws IllegalArgumentException {
+    if (!(type.equals("Volleyball") || type.equals("Football"))) throw new IllegalArgumentException("Type has to be either Football or Volleyball");
+    return switch (type) {
+      case "Volleyball" -> new Volleyball(3, 15.0f);
+      case "Football" -> new Football(2, 12.5f);
+    }
+    return null;
+  }
+}
+```
+```java
+public class SomeClass {
+
+  ...
+  
+  // main method
+  public static void main (String[] args) {
+    ...
+    Ball b = BallFactory.getBall("Volleyball");
+    b.roll;
+    ...
+  }
+}
+```
+~~~
+Volleyball@0x298f74 volleyball is rolling.
+~~~
+
+[Mehr lesen](https://en.wikipedia.org/wiki/Factory_method_pattern)
+
 ### Singleton Pattern
+
+
 
 ### Builder Pattern
 
@@ -51,5 +170,3 @@ Es folgt eine kurze Beschreibung von einem Auszug der Design Patterns, die Liste
 ### References
 
 Gamma, E., Helm, R., Johnson, R., and Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software.* Addison-Wesley.
-
-Glesner, S. (2021/2022) *Softwaretechnik und Programmierparadigmen.* Vorlesung an der TU Berlin.
