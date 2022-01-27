@@ -2,13 +2,13 @@
 title: Software Design Patterns
 ---
 
-## Design Patterns
+# Design Patterns
 
-### Grundidee
+## Grundidee
 
 *Design Patterns* (dt. Entwicklungsmuster) sind allgemeine, wiederverwendbare Lösungsansätze für häufig vorkommende Probleme in der Softwareentwicklung. Entwicklungsmuster sind keine fertig implementierten Designs, sondern können eher als *template* und *best practice* verstanden werden.
 
-### Arten von Patterns
+## Arten von Patterns
 
 Verschiedene Patterns können grob in drei Kategorien eingeteilt werden:
 
@@ -57,9 +57,9 @@ Das Factory Pattern beschreibt eine allgemeine Möglichkeit, Objekte in einem Pr
 └─────────────────────────────────────────┘
 ```
 
-Hinweis: Es bietet sich an, entweder die Klasse `BallFactory` und nur Klassenmehtoden und einem privaten Constructor auszustatten oder das Singleton Pattern auf die Klassen anzuwenden, um zu verhindern, dass mehr Objekte der Factory Klassen als notwendig erstellt werden.
+Hinweis: Es bietet sich an, entweder die Klasse `BallFactory` und nur Klassenmehtoden und einem privaten Konstruktor auszustatten oder das Singleton Pattern auf die Klassen anzuwenden, um zu verhindern, dass mehr Objekte der Factory Klassen als notwendig erstellt werden.
 
-**Mögliche Java Implementation**
+**Mögliche Java Implementierung**
 
 ```java
 public interface Ball {
@@ -143,7 +143,28 @@ Volleyball@0x298f74 volleyball is rolling.
 
 ### Singleton Pattern
 
+In machen Fällen ist es sinnvoll, nur eine Instanz einer Klasse zu erlauben. Dafür kann das Singleton Pattern verwendet werden. Der Konstruktur der Klasse wird auf privat gesetzt, damit er von außen nicht erreichbar ist. Es gibt eine Klassenreferenz auf das Singleton Objekt. Zuletzt gibt es eine Klassenmethode `getInstance`, die – falls diese zum ersten Mal aufgerufen wird – das Klassenobjekt instanziiert und anschließend eine Referenz darauf zurückgibt. **Ergänzung:** Wird im restlichen Programm mit Threads gearbeitet, ist es sinnvoll, die `getInstance()`-Methode um das `synchronized`-Keyword zu ergänzen. Sonst ist das Programm nicht mehr thread-safe.
 
+**Mögliche Java Implementierung**
+
+```java
+public class SomeClass {
+  
+  private int someAttribute;
+  private static SomeClass singleton = null;
+  
+  // private constructor
+  private SomeClass (int x) {
+    this.someAttribute = x;
+  }
+  
+  // getInstance method returns reference to the singleton object
+  public static synchronized SomeClass getInstance (int x) {
+    if (SomeClass.singleton == null) SomeClass.singleton = new SomeClass(x);
+    return SomeClass.singleton;
+  }
+}
+```
 
 ### Builder Pattern
 
