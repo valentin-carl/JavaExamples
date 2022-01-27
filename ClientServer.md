@@ -1,3 +1,7 @@
+---
+title: Client Server Example
+---
+
 # Client-Server-Kommunikation in Java
 
 ## Das Client-Server-Modell
