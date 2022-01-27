@@ -4,7 +4,7 @@ Dieses Repository enthält verschiedene Beispiele zu Java Konzepten und passende
 
 ### Übersicht
 
-- [Client-Server-Kommunikation](./pages/clientserver.html)
+- [Client-Server-Kommunikation](./clientserver.html)
 - [Thread Synchronisation](https://github.com/valentin-carl/JavaExamples/blob/main/SynchronizedExample/README.md)
 
 ### Bei Fragen
