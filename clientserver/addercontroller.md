@@ -2,7 +2,7 @@
 title: addercontroller.java
 ---
 
-[back](https://valentin-carl.github.io/JavaExamples/clientserver)
+[back](https://valentin-carl.github.io/JavaExamples/ClientServer)
 
 ~~~java
 import java.util.Scanner;
