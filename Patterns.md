@@ -166,8 +166,6 @@ public class SomeClass {
 }
 ```
 
-### Builder Pattern
-
 
 
 ## Structural Design Patterns (Strukturmuster)
