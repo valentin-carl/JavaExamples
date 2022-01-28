@@ -1,6 +1,6 @@
 ## Java Examples Repository
 
-Dieses Repository enthält verschiedene Beispiele zu Java Konzepten und passende Erklärungen dazu.
+Dieses Repository enthält verschiedene Java Beispiele und passende Erklärungen dazu.
 
 ### Übersicht
 
