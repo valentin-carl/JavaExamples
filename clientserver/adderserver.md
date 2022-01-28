@@ -2,6 +2,8 @@
 title: adderserver.java
 ---
 
+[back](https://valentin-carl.github.io/JavaExamples/clientserver)
+
 ~~~java
 
 import java.io.*;
