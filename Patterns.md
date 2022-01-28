@@ -129,7 +129,10 @@ public class SomeClass {
   // main method
   public static void main (String[] args) {
     ...
-    Ball b = BallFactory.getBall("Volleyball");
+    Ball b = null;
+    try {
+      b = BallFactory.getBall("Volleyball");
+    } catch (IllegalArgumentException e) {}
     b.roll;
     ...
   }
