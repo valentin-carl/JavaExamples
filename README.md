@@ -24,3 +24,10 @@ Dieses Repository enthält Beispiele zu Java Konzepten mit passenden Erklärunge
 - [Git](https://www.youtube.com/watch?v=92sycL8ij-U) (&#8594; [anderer hilfreicher Artikel](https://eagain.net/articles/git-for-computer-scientists/))
 - [Dining philosophers problem](https://www.youtube.com/watch?v=NbwbQQB7xNQ)
 - [Consumer producer problem](https://www.youtube.com/watch?v=UOr9kMCCa5g)
+
+---
+
+### Miscellaneous 
+
+- [Pass by value vs. pass by reference](https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value/430958#430958)
+- [Compiler](https://softwareengineering.stackexchange.com/questions/165543/how-to-write-a-very-basic-compiler)
