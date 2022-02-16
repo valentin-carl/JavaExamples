@@ -7,7 +7,7 @@ Dieses Repository enthält Beispiele zu Java Konzepten mit passenden Erklärunge
 - [Client-Server](https://github.com/valentin-carl/JavaExamples/tree/main/ClientServerExample)
 - [Synchronized](https://github.com/valentin-carl/JavaExamples/tree/main/SynchronizedExample)
 - [Recursion](https://github.com/valentin-carl/JavaExamples/tree/main/Recursion)
-- [Consumer-Prdoucer-Problem](https://github.com/valentin-carl/JavaExamples/tree/main/ConsumerProducer)
+- [Consumer-Producer-Problem](https://github.com/valentin-carl/JavaExamples/tree/main/ConsumerProducer)
 
 ----
 
