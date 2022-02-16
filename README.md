@@ -22,3 +22,5 @@ Dieses Repository enthält Beispiele zu Java Konzepten mit passenden Erklärunge
 - [Big O notation](https://www.youtube.com/watch?v=Q_1M2JaijjQ)
 - [Grundidee Datenstrukturen](https://www.youtube.com/watch?v=VAt2mR7gY0k)
 - [Git](https://www.youtube.com/watch?v=92sycL8ij-U)
+- [Dining philosophers problem](https://www.youtube.com/watch?v=NbwbQQB7xNQ)
+- [Consumer producer problem](https://www.youtube.com/watch?v=UOr9kMCCa5g)
