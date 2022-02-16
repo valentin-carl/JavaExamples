@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class A {
+public class ConsumerProducer {
 
     static Stack<Double> stapel = new Stack<>();
 
