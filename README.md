@@ -31,3 +31,5 @@ Dieses Repository enthält Beispiele zu Java Konzepten mit passenden Erklärunge
 
 - [Pass by value vs. pass by reference](https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value/430958#430958)
 - [Compiler](https://softwareengineering.stackexchange.com/questions/165543/how-to-write-a-very-basic-compiler)
+- [Java and Makefiles](https://www.cs.swarthmore.edu/~newhall/unixhelp/javamakefiles.html)
+- 
